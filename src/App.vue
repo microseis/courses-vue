@@ -12,7 +12,7 @@
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
           <router-link to="/about" class="navbar-item">Some Another Link</router-link>
-          <router-link to="/home" class="navbar-item">Some Link</router-link>
+          <router-link to="/chart" class="navbar-item">Chart</router-link>
           <div class="navbar-item">
             <div class="buttons">
               <router-link to="/log-in" class="button is-light">Log In</router-link>

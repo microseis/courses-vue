@@ -8,11 +8,11 @@
 </template>
 
 <script>
-  export default {
+export default {
     name: 'App',
     data() {
-      return {name: "Alexey",
-              greet: "Hello,",
+        return { name: "Alexey",
+            greet: "Hello,",
              isDisabled: false};
     }
   }
