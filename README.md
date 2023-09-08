@@ -1,4 +1,4 @@
-# cdoadamin
+# courses-vue
 
 ## Project setup
 ```
