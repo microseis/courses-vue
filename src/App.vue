@@ -11,11 +11,11 @@
       </div>
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
-          <router-link to="/about" class="navbar-item">Some Another Link</router-link>
-          <router-link to="/chart" class="navbar-item">Chart</router-link>
+          <router-link to="/about" class="navbar-item">О центре</router-link>
+          <router-link to="/chart" class="navbar-item">Статистика</router-link>
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/log-in" class="button is-light">Log In</router-link>
+              <router-link to="/log-in" class="button is-light">Войти</router-link>
             </div>
           </div>
         </div>

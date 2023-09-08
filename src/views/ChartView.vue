@@ -1,5 +1,4 @@
 <template>
-    <h1>Hello</h1>
     <div class="column is-half" style="height: 5%;">
       <div class="row is-half">
         <canvas ref="canvasRef"></canvas>

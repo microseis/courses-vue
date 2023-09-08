@@ -6,11 +6,8 @@
     <div class="container">
         <div class="notification is-primary"
         v-for="course in cdoCourses" 
-        v-bind:key="course.results"
-        >
-            <h3 class="is-size-4" >{{ course.name }}</h3>
-            <p class="is-size-5">Даты проведения: {{ course.start_date }} - {{ course.end_date }}</p>
-            <p class="is-size-5"> Стоимость: {{ course.price_per_attendee }} руб.</p>
+        v-bind:key="course.results">
+            <a class="is-size-4" v-bind:href="'/courses/'+ course.id">{{ course.name }}</a>
             <p></p>
         </div>
 
