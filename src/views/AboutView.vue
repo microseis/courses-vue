@@ -7,6 +7,9 @@
 <script>
 export default {
     name: 'App',
+    mounted() {
+        document.title = "О центре | CdoGEO"
+    },
     data() {
         return ;
     }
