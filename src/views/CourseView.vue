@@ -1,6 +1,6 @@
 <template>
     <div class="page-course">
-        <div class="columnm is-multiline">
+        <div class="columnm is-multiline box">
             <div class="column is-9">
                 <h1 v-bind:src="course"><strong>{{ course.name }}</strong></h1>
                 <p> Даты проведения: {{ formatDate(course.start_date)  }} - {{ formatDate(course.end_date)  }}</p>

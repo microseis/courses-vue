@@ -4,7 +4,7 @@
             <h2 class="is-size-2 has-text-centered">Компании</h2>
         </div>
         <div class="container">
-            <p class="has-text-centered">Отчет по компаниям за весь пеиод сбора данных</p>
+            <p class="has-text-centered">Отчет по компаниям за весь период сбора данных с 2022 по {{ currYear }} г.</p>
             <div class="columns">
             <div class="column">
             <div><strong>Всего компаний: {{ cdoCompanies.total_companies }}</strong></div>
@@ -42,7 +42,8 @@
         return {
             cdoCompanies: [],
             cdoCompanies_sorted: [],
-            all_attendees: {}
+            all_attendees: {},
+            currYear: new Date().getFullYear(),
         }
     },
     props: {

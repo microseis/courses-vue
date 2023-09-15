@@ -12,9 +12,11 @@
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
           <router-link to="/about" class="navbar-item">О центре</router-link>
-          <router-link to="/chart" class="navbar-item">Отчеты</router-link>
+          <router-link to="/reports" class="navbar-item">Отчеты</router-link>
           <router-link to="/tutors" class="navbar-item">Преподаватели</router-link>
           <router-link to="/companies" class="navbar-item">Компании</router-link>
+          <router-link to="/courses" class="navbar-item">Курсы</router-link>
+          <router-link to="/my-account" class="navbar-item">Мой аккаунт</router-link>
           <div class="navbar-item">
             <div class="buttons">
               <router-link to="/log-in" class="button is-light">Войти</router-link>
@@ -36,13 +38,26 @@
   </template>
   
   <script>
+  import axios from 'axios';
   export default {
   data() {
     return {
       currYear: new Date().getFullYear(),
     };
   },
-};
+  beforeCreate() {
+      this.$store.commit('initializeStore')
+
+      const token = this.$store.state.token
+
+      if (token) {
+        axios.defaults.headers.common['Authorization'] = "Token" + token
+      } else {
+        axios.defaults.headers.common["Authorization"] = ""
+      }
+
+    },
+}
   </script>
   
   <style lang="scss">
