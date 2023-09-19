@@ -25,7 +25,7 @@
             </table>
         </div>
         <div class="column"> 
-                <BarCharts :labelsdata="getCompaniesNames" :chartdata="getCompaniesAttendees"></BarCharts>
+                <BarChart :labelsdata="getCompaniesNames" :chartdata="getCompaniesAttendees"></BarChart>
             </div>
     </div>
 </div>
@@ -35,7 +35,7 @@
     
 <script>
     import axios from 'axios';
-    import BarCharts from '../components/ChartComponent.vue'
+    import BarChart from '../components/ChartComponent.vue'
 
     export default {
     data() {
@@ -70,7 +70,7 @@
     },
 
     components: {
-    BarCharts 
+    BarChart 
     },
     
     mounted() {

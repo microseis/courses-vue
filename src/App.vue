@@ -12,14 +12,21 @@
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
           <router-link to="/about" class="navbar-item">О центре</router-link>
-          <router-link to="/reports" class="navbar-item">Отчеты</router-link>
-          <router-link to="/tutors" class="navbar-item">Преподаватели</router-link>
-          <router-link to="/companies" class="navbar-item">Компании</router-link>
-          <router-link to="/courses" class="navbar-item">Курсы</router-link>
-          <router-link to="/my-account" class="navbar-item">Мой аккаунт</router-link>
+          <template v-if="$store.state.isAuthenticated">
+            <router-link to="/reports" class="navbar-item">Отчеты</router-link>
+            <router-link to="/tutors" class="navbar-item">Преподаватели</router-link>
+            <router-link to="/companies" class="navbar-item">Компании</router-link>
+            <router-link to="/courses" class="navbar-item">Курсы</router-link>
+        </template>
+
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/log-in" class="button is-light">Войти</router-link>
+              <template v-if="$store.state.isAuthenticated">
+                <router-link to="/my-account" class="button is-light">Мой аккаунт</router-link>
+            </template>
+            <template v-else>
+                <router-link to="/log-in" class="button is-light">Войти</router-link>
+            </template>
             </div>
           </div>
         </div>

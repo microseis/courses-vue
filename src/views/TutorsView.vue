@@ -13,7 +13,7 @@
                                         {{ department.name }}
                                 </option>
                                     </select>
-                    </div>
+                        </div>
                     <button class="button is-info mt-2" type="submit" @click.stop.prevent="getTutors()">Собрать отчет</button>
                     <p class="help">Отчет не обновится, если не нажать на кнопку</p>
                     </div>
