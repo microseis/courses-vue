@@ -13,10 +13,30 @@
         <div class="navbar-end">
           <router-link to="/about" class="navbar-item">О центре</router-link>
           <template v-if="$store.state.isAuthenticated">
-            <router-link to="/reports" class="navbar-item">Отчеты</router-link>
             <router-link to="/tutors" class="navbar-item">Преподаватели</router-link>
             <router-link to="/companies" class="navbar-item">Компании</router-link>
             <router-link to="/courses" class="navbar-item">Курсы</router-link>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                Отчеты
+              </a>
+
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  <router-link to="/reports" class="navbar-item">Компании</router-link>
+                </a>
+                <a class="navbar-item">
+                  <router-link to="/tutors-income" class="navbar-item">Преподаватели</router-link>
+                </a>
+                <a class="navbar-item">
+                  <router-link to="/departments" class="navbar-item">Подразделения</router-link>
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  <router-link to="/contact" class="navbar-item">Задать вопрос</router-link>
+                </a>
+              </div>
+            </div>
         </template>
 
           <div class="navbar-item">
@@ -69,5 +89,9 @@
   
   <style lang="scss">
   @import '../node_modules/bulma';
+
+  table, th, td {
+    border:1px solid black;
+    }
   </style>
   

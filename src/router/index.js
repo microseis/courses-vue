@@ -11,6 +11,8 @@ import ReportView from '../views/ReportView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import LogInView from '../views/LogInView.vue'
 import MyAccountView from '../views/MyAccountView.vue'
+import TutorsIncomeView from '../views/TutorsIncomeView.vue'
+import DepartmentsView from '../views/DepartmentsView.vue'
 
 const routes = [
   {
@@ -40,6 +42,22 @@ const routes = [
     path: '/my-account',
     name: 'my-account',
     component: MyAccountView,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/tutors-income',
+    name: 'tutors-income',
+    component: TutorsIncomeView,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/departments',
+    name: 'departments',
+    component: DepartmentsView,
     meta: {
       requireLogin: true
     }
