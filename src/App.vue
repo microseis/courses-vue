@@ -15,7 +15,7 @@
           <template v-if="$store.state.isAuthenticated">
             <router-link to="/tutors" class="navbar-item">Преподаватели</router-link>
             <router-link to="/companies" class="navbar-item">Компании</router-link>
-            <router-link to="/courses" class="navbar-item">Курсы</router-link>
+            <router-link to="/courses/2022/1" class="navbar-item">Курсы</router-link>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 Отчеты

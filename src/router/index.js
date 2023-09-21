@@ -79,7 +79,7 @@ const routes = [
     }
   },
   {
-    path: '/courses',
+    path: '/courses/:year/:page/',
     name: 'courses',
     component: CoursesView,
     meta: {
