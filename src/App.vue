@@ -31,6 +31,9 @@
                 <a class="navbar-item">
                   <router-link to="/departments" class="navbar-item">Подразделения</router-link>
                 </a>
+                <a class="navbar-item">
+                  <router-link to="/course-report" class="navbar-item">Курсы</router-link>
+                </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item">
                   <router-link to="/contact" class="navbar-item">Задать вопрос</router-link>

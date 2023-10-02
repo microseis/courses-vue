@@ -13,6 +13,7 @@ import LogInView from '../views/LogInView.vue'
 import MyAccountView from '../views/MyAccountView.vue'
 import TutorsIncomeView from '../views/TutorsIncomeView.vue'
 import DepartmentsView from '../views/DepartmentsView.vue'
+import CourseReportView from '../views/CourseReport.vue'
 
 const routes = [
   {
@@ -94,7 +95,14 @@ const routes = [
       requireLogin: true
     }
   },
-
+  {
+    path: '/course-report',
+    name: 'course-report',
+    component: CourseReportView,
+    meta: {
+      requireLogin: true
+    }
+  },
   {
     path: '/companies',
     name: 'companies',
