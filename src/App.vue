@@ -56,37 +56,36 @@
     <section class="section">
       <router-view/>
     </section>
-    
+
     <footer class="footer">
       <p class="has-text-centered">Copyright {{currYear}} &copy;</p>
-    </footer>  
-  </div> 
-  
+    </footer>
+  </div>
+
   </template>
-  
-  <script>
-  import axios from 'axios';
-  export default {
-  data() {
+
+<script>
+import axios from 'axios'
+export default {
+  data () {
     return {
-      currYear: new Date().getFullYear(),
-    };
+      currYear: new Date().getFullYear()
+    }
   },
-  beforeCreate() {
-      this.$store.commit('initializeStore')
+  beforeCreate () {
+    this.$store.commit('initializeStore')
 
-      const token = this.$store.state.token
+    const token = this.$store.state.token
 
-      if (token) {
-        axios.defaults.headers.common['Authorization'] = "Token" + token
-      } else {
-        axios.defaults.headers.common["Authorization"] = ""
-      }
-
-    },
+    if (token) {
+      axios.defaults.headers.common.Authorization = 'Token' + token
+    } else {
+      axios.defaults.headers.common.Authorization = ''
+    }
+  }
 }
-  </script>
-  
+</script>
+
   <style lang="scss">
   @import '../node_modules/bulma';
 
@@ -94,4 +93,3 @@
     border:1px solid black;
     }
   </style>
-  

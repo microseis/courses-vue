@@ -12,7 +12,7 @@
                 <p> Участвующие компании:</p>
                 <div class="ml-5">
                     <ol>
-                        <li v-for="company in course.companies_list"> {{ company }}</li>
+                        <li v-for="company in course.companies_list" :key="company.id"> {{ company }}</li>
                     </ol>
                 </div>
             </div>
@@ -22,37 +22,37 @@
 </template>
 
 <script>
-import axios from 'axios';
-import moment from 'moment';
+import axios from 'axios'
+import moment from 'moment'
 export default {
-    name: 'course',
-    data() {
-        return {
-            course: {}
-        }
-    },
-    mounted() {
-        this.getCourse()
-    },
-    methods: {
-        formatDate(value) {
-        if (value) {
+  name: 'CourseView',
+  data () {
+    return {
+      course: {}
+    }
+  },
+  mounted () {
+    this.getCourse()
+  },
+  methods: {
+    formatDate (value) {
+      if (value) {
         return moment(String(value)).format('DD.MM.YYYY')
-    }
-        },
-        getCourse() {
-            const course_id = this.$route.params.course_id
-            axios
-            .get(`api/v1/course/${course_id}`)
-            .then( response => {
-                this.course =response.data
+      }
+    },
+    getCourse () {
+      const courseId = this.$route.params.course_id
+      axios
+        .get(`api/v1/course/${courseId}`)
+        .then(response => {
+          this.course = response.data
 
-                document.title = this.course.name + ' | CdoGEO '
-            })
-            .catch(error => {
-                console.log(error)
-            })
-        }
+          document.title = this.course.name + ' | CdoGEO '
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
+  }
 }
 </script>

@@ -27,8 +27,8 @@
                     <th>Подразделение</th>
                     <th>Внешник</th>
                 </tr>
-                <tr v-for="tutor in cdoTutors.data">
-                    
+                <tr v-for="tutor in cdoTutors.data" :key=tutor.id>
+
                         <th  class="has-text-weight-light has-text-centered"> {{ tutor.name }}</th>
                         <th  class="has-text-weight-light has-text-centered"> {{ tutor.position }}</th>
                         <th  class="has-text-weight-light has-text-centered"> {{ tutor.department }}</th>
@@ -39,50 +39,50 @@
         </div>
     </div>
     </template>
-    
-    <script>
-      import axios from 'axios';
-      export default {
-        data() {
-            return {
-                cdoTutors: [],
-                department_id: 1,
-                departments: {},
-                selected_department_id: '0'
-                }
-        },
-        components: {
-        },
-        mounted() {
-            this.getDepartments()
-            this.getTutors()
-            document.title = "Преподаватели | CdoGEO"
-        },
-        methods: {
-            getTutors(){
-            axios
-                .get('api/v1/tutors/'+this.selected_department_id)
-                .then(response => {
-                    this.cdoTutors = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            },
-            getDepartments(){
-            axios
-                .get('api/v1/departments')
-                .then(response => {
-                    this.departments = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            },
-        }
-      }
-    </script>
-    
+
+<script>
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      cdoTutors: [],
+      department_id: 1,
+      departments: {},
+      selected_department_id: '0'
+    }
+  },
+  components: {
+  },
+  mounted () {
+    this.getDepartments()
+    this.getTutors()
+    document.title = 'Преподаватели | CdoGEO'
+  },
+  methods: {
+    getTutors () {
+      axios
+        .get('api/v1/tutors/' + this.selected_department_id)
+        .then(response => {
+          this.cdoTutors = response.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    getDepartments () {
+      axios
+        .get('api/v1/departments')
+        .then(response => {
+          this.departments = response.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  }
+}
+</script>
+
     <style>
 
     </style>

@@ -34,56 +34,55 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 export default {
-    name: "LogIn",
-    data(){
-        return {
-            username: '',
-            password: '',
-            errors: []
-        }
-    },
-    mounted() {
-        document.title = 'Вход в аккаунт | CdoGEO'
-    },
-
-    methods: {
-        async submitForm(){
-            axios.defaults.headers.common['Authorization'] = ""
-
-            localStorage.removeItem('token')
-
-            const formData = {
-                    username: this.username,
-                    password: this.password
-                }
-            await axios
-                    .post("/api/v1/token/login/", formData)
-                    .then(response => {
-                        const token = response.data.auth_token
-
-                        this.$store.commit('setToken', token)
-                        axios.defaults.headers.common["Authorization"] = "Token" + token
-                        localStorage.setItem("token", token)
-
-                        const toPath = this.$route.query.to || '/courses'
-
-                        this.$router.push(toPath)
-                        
-                    })
-                    .catch (error => {
-                        if (error.response) {
-                            for (const property in error.response.data) {
-                                this.errors.push(`${property}: ${error.response.data[property]}`)
-                            }
-                            console.log(JSON.stringify(error.response.data))
-                        } else if (error.message) {
-                            this.errors.push('Что-то пошло не так. Попробуйте еще раз')
-                            console.log(JSON.stringify(error))
-                        }
-                    })
-        }           
+  name: 'LogIn',
+  data () {
+    return {
+      username: '',
+      password: '',
+      errors: []
     }
+  },
+  mounted () {
+    document.title = 'Вход в аккаунт | CdoGEO'
+  },
+
+  methods: {
+    async submitForm () {
+      axios.defaults.headers.common.Authorization = ''
+
+      localStorage.removeItem('token')
+
+      const formData = {
+        username: this.username,
+        password: this.password
+      }
+      await axios
+        .post('/api/v1/token/login/', formData)
+        .then(response => {
+          const token = response.data.auth_token
+
+          this.$store.commit('setToken', token)
+          axios.defaults.headers.common.Authorization = 'Token' + token
+          localStorage.setItem('token', token)
+
+          const toPath = this.$route.query.to || '/courses'
+
+          this.$router.push(toPath)
+        })
+        .catch(error => {
+          if (error.response) {
+            for (const property in error.response.data) {
+              this.errors.push(`${property}: ${error.response.data[property]}`)
+            }
+            console.log(JSON.stringify(error.response.data))
+          } else if (error.message) {
+            this.errors.push('Что-то пошло не так. Попробуйте еще раз')
+            console.log(JSON.stringify(error))
+          }
+        })
+    }
+  }
 }
 </script>
