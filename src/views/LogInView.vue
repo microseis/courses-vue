@@ -35,6 +35,7 @@
 
 <script>
 import axios from 'axios'
+import cookie from 'cookie'
 export default {
   name: 'LogIn',
   data () {
@@ -59,7 +60,10 @@ export default {
         password: this.password
       }
       await axios
-        .post('/api/v1/token/login/', formData)
+        .post('/api/v1/token/login/', { withCredentials: true },
+          {
+            headers: { 'X-CSRFToken': cookie.get('csrftoken') }
+          }, formData)
         .then(response => {
           const token = response.data.auth_token
 
